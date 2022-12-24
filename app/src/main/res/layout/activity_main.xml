@@ -20,8 +20,22 @@
         android:id="@+id/edit_note"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/edit_note2"
+        android:hint="@string/title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="title"
+        android:inputType="text" />
+
+    <EditText
+        android:hint="@string/desc"
+        app:layout_constraintEnd_toStartOf="@id/add_note"
+        android:id="@+id/edit_note2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="Desc"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/add_note"

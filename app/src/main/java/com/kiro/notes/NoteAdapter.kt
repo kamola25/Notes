@@ -1,35 +1,49 @@
 package com.kiro.notes
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kiro.notes.databinding.ItemNoteBinding
 
-class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class NoteAdapter(private val listener: IItemClick): RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
-    var list:MutableList<String> = ArrayList()
+    private var list:MutableList<NoteModel> = ArrayList()
 
-    fun addNote(text: String){
-        list.add(text)
+    fun addNote(note: NoteModel){
+        list.add(note)
         notifyItemInserted(list.size )
     }
+    fun delete(pos:Int){
+        list.removeAt(pos)
+        notifyItemRemoved(pos)
+    }
+    fun edit(pos:Int,note: NoteModel) {
+        list.set(pos,note)
+        notifyItemChanged(pos)
+    }
+   inner class ViewHolder(private val binding: ItemNoteBinding): RecyclerView.ViewHolder(binding.root){
 
-   inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var text = itemView.findViewById<TextView>(R.id.item_text)
-
-        fun bind(message: String){
-            text.text = message
-            text.setOnLongClickListener{
-                list.removeAt(adapterPosition)
-                notifyItemRemoved(list.size)
+        fun bind(note: NoteModel){
+            binding.itemText.text = note.title
+            binding.itemText2.text = note.desc
+            binding.root.setOnLongClickListener{
+                listener.delete(adapterPosition)
                 true
             }
+            binding.root.setOnClickListener{
+                listener.edit(adapterPosition)
+            }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_note ,parent,false))
+        val view = ItemNoteBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return ViewHolder(view)
+    }
+    fun getList(): MutableList<NoteModel>{
+        return list
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
