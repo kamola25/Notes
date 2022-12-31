@@ -1,10 +1,11 @@
-package com.kiro.notes
+package com.kiro.notes.ui.fragment.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.kiro.notes.R
 
 
 class MainFragment : Fragment() {

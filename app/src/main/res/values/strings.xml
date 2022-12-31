@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Notes</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add">add</string>
     <string name="title">Title</string>
     <string name="desc">Desc</string>
+    <string name="warning">Warning</string>
+    <string name="message">Are you sure to delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="sort" translatable="false">Sort</string>
+
+
 </resources>

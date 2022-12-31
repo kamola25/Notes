@@ -1,4 +1,4 @@
-package com.kiro.notes
+package com.kiro.notes.core
 
 interface IItemClick {
     fun delete(pos:Int)

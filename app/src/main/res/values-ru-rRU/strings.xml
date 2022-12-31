@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Заметки</string>
+    <string name="hello_blank_fragment">Пустой фрагмент</string>
+    <string name="add">добавить</string>
+    <string name="title">Заголовок</string>
+    <string name="desc">Описание</string>
+    <string name="warning">Предупреждение</string>
+    <string name="message">Вы действительно хотите удалить?</string>
+    <string name="cancel">Закрыть</string>
+    <string name="edit">Изменить</string>
+</resources>

@@ -1,8 +1,10 @@
-package com.kiro.notes
+package com.kiro.notes.ui.fragment.note
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.kiro.notes.core.IItemClick
+import com.kiro.notes.data.entity.NoteModel
 import com.kiro.notes.databinding.ItemNoteBinding
 
 class NoteAdapter(private val listener: IItemClick): RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
@@ -12,6 +14,10 @@ class NoteAdapter(private val listener: IItemClick): RecyclerView.Adapter<NoteAd
     fun addNote(note: NoteModel){
         list.add(note)
         notifyItemInserted(list.size )
+
+    }fun sort(){
+        list.sortBy { it.title }
+        notifyDataSetChanged()
     }
     fun delete(pos:Int){
         list.removeAt(pos)
@@ -26,11 +32,11 @@ class NoteAdapter(private val listener: IItemClick): RecyclerView.Adapter<NoteAd
         fun bind(note: NoteModel){
             binding.itemText.text = note.title
             binding.itemText2.text = note.desc
-            binding.root.setOnLongClickListener{
+            binding.itemDelete.setOnClickListener{
                 listener.delete(adapterPosition)
-                true
+
             }
-            binding.root.setOnClickListener{
+            binding.itemEdit.setOnClickListener{
                 listener.edit(adapterPosition)
             }
         }

@@ -4,45 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recycler"
-        android:layout_width="match_parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/edit_note"
-        />
-
-    <EditText
-        app:layout_constraintEnd_toStartOf="@id/add_note"
-        android:id="@+id/edit_note"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/edit_note2"
-        android:hint="@string/title"
-        app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints="title"
-        android:inputType="text" />
-
-    <EditText
-        android:hint="@string/desc"
-        app:layout_constraintEnd_toStartOf="@id/add_note"
-        android:id="@+id/edit_note2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints="Desc"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/add_note"
-        android:text="@string/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
