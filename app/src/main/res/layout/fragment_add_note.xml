@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.note.AddNoteFragment">
+
+    <EditText
+        app:layout_constraintEnd_toStartOf="@id/add"
+        android:id="@+id/edit_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/edit_desc"
+        android:hint="@string/title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="title"
+        android:inputType="text" />
+
+    <EditText
+        android:hint="@string/desc"
+        app:layout_constraintEnd_toStartOf="@id/add"
+        android:id="@+id/edit_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="Desc"
+        android:inputType="text" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sort"
+        android:id="@+id/sort"
+        app:layout_constraintBottom_toTopOf="@id/add"
+        app:layout_constraintStart_toEndOf="@id/edit_title"
+        />
+
+    <Button
+        android:id="@+id/add"
+        android:text="@string/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

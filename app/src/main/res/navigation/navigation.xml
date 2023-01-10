@@ -19,4 +19,9 @@
         android:id="@+id/noteFragment"
         android:name="com.kiro.notes.ui.fragment.note.NoteFragment"
         android:label="NoteFragment" />
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.kiro.notes.ui.fragment.note.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" />
 </navigation>
